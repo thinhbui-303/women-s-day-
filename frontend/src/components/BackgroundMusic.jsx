@@ -6,8 +6,8 @@ const BackgroundMusic = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(null);
 
-  // Lưu ý: Cần một file nhạc .mp3 trong thư mục public hoặc link URL
-  const audioUrl = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'; // Đây là link nhạc mẫu
+  // Nhạc nền: As Long As You Love Me - Backstreet Boys
+  const audioUrl = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Ketsa/Raising_Frequency/Ketsa_-_08_-_As_Long_As_You_Love_Me.mp3'; // Đây là một bản cover/phiên bản free, hoặc bạn có thể thay bằng link youtube/mp3 khác
 
   const togglePlay = () => {
     if (isPlaying) {
