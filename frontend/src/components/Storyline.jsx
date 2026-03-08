@@ -4,38 +4,39 @@ import { Heart, Calendar, MapPin, Camera, Star, Sparkles } from 'lucide-react';
 import HeartParticles from './HeartParticles';
 import './Storyline.css';
 
+// Mẹo: Bạn có thể thay đổi link ảnh (image) bằng link ảnh thật của hai bạn nhé!
 const timelineData = [
   {
     id: 1,
-    date: 'March 2024',
-    title: 'Lần đầu gặp gỡ',
-    content: 'Ánh mắt chạm nhau, thế giới bỗng nhiên chậm lại...',
+    date: 'Tháng 3, 2024',
+    title: 'Định mệnh đưa lối',
+    content: 'Ngày đầu mình gặp nhau, em như một tia nắng làm bừng sáng cả bầu trời của anh. Ánh mắt ấy đã khiến anh biết rằng mình đã tìm thấy "một nửa" của đời mình.',
     icon: <Calendar className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800',
+    image: 'https://images.unsplash.com/photo-1516589174184-c6852650d87a?auto=format&fit=crop&w=800',
   },
   {
     id: 2,
-    date: 'April 2024',
-    title: 'Buổi hẹn đầu tiên',
-    content: 'Cùng nhau đi dạo dưới ánh đèn phố phường, nụ cười ấy thật rạng rỡ.',
+    date: 'Buổi hẹn đầu tiên',
+    title: 'Rung động ngọt ngào',
+    content: 'Cùng nhau đi dạo, cùng nhau trò chuyện... Mọi thứ đều trở nên kỳ diệu khi có em bên cạnh. Nụ cười của em là điều tuyệt vời nhất mà anh từng thấy.',
     icon: <MapPin className="w-6 h-6" />,
     image: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800',
   },
   {
     id: 3,
-    date: 'June 2024',
-    title: 'Kỷ niệm khó quên',
-    content: 'Những chuyến đi, những khoảnh khắc được lưu giữ mãi mãi.',
+    date: 'Kỷ niệm khó quên',
+    title: 'Bên nhau bình yên',
+    content: 'Dù là những chuyến đi xa hay chỉ là những phút giây tĩnh lặng, mỗi khoảnh khắc có em đều là một món quà vô giá đối với anh.',
     icon: <Camera className="w-6 h-6" />,
     image: 'https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800',
   },
   {
     id: 4,
-    date: 'Today',
-    title: 'Hành trình tiếp tục',
-    content: 'Cảm ơn vì đã luôn ở bên cạnh, làm cho cuộc sống trở nên rực rỡ hơn.',
+    date: '8/3/2026',
+    title: 'Gửi trọn yêu thương',
+    content: 'Hôm nay là ngày của em, và anh muốn nói rằng anh yêu em rất nhiều. Cảm ơn em đã luôn đồng hành và làm cho cuộc sống của anh trở nên rực rỡ hơn.',
     icon: <Star className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1516589174184-c6852650d87a?auto=format&fit=crop&w=800',
+    image: 'https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?auto=format&fit=crop&w=800',
   },
 ];
 

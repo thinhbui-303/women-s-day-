@@ -12,7 +12,7 @@ const Confetti = () => {
     let animationId;
 
     let particles = [];
-    const colors = ['#ff4d6d', '#ff758f', '#ff8fa3', '#ffb3c1', '#c9184a', '#ffccd5', '#fff'];
+    const colors = ['#ff4d6d', '#ff758f', '#ff8fa3', '#ffb3c1', '#c9184a', '#ffccd5', '#fff', '#ffd700'];
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -54,7 +54,6 @@ const Confetti = () => {
         ctx.rotate((this.rotation * Math.PI) / 180);
         ctx.fillStyle = this.color;
         
-        // Randomly draw squares or circles
         if (Math.random() > 0.5) {
             ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
         } else {
@@ -66,16 +65,88 @@ const Confetti = () => {
       }
     }
 
-    for (let i = 0; i < 150; i++) {
-      particles.push(new Particle());
+    class Firework {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height;
+        this.targetY = Math.random() * (canvas.height / 2);
+        this.speed = Math.random() * 3 + 5;
+        this.particles = [];
+        this.exploded = false;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      update() {
+        if (!this.exploded) {
+          this.y -= this.speed;
+          if (this.y <= this.targetY) {
+            this.explode();
+          }
+        } else {
+          this.particles.forEach((p, i) => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += 0.1; // gravity
+            p.alpha -= 0.01;
+            if (p.alpha <= 0) this.particles.splice(i, 1);
+          });
+        }
+      }
+
+      explode() {
+        this.exploded = true;
+        for (let i = 0; i < 30; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 4 + 2;
+          this.particles.push({
+            x: this.x,
+            y: this.y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            alpha: 1
+          });
+        }
+      }
+
+      draw() {
+        if (!this.exploded) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        } else {
+          this.particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = `${this.color}${Math.floor(p.alpha * 255).toString(16).padStart(2, '0')}`;
+            ctx.fill();
+          });
+        }
+      }
+    }
+
+    let confettiParticles = [];
+    let fireworks = [];
+
+    for (let i = 0; i < 200; i++) {
+      confettiParticles.push(new Particle());
     }
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
+      
+      confettiParticles.forEach((p) => {
         p.update();
         p.draw();
       });
+
+      if (Math.random() < 0.02) fireworks.push(new Firework());
+      fireworks.forEach((f, i) => {
+        f.update();
+        f.draw();
+        if (f.exploded && f.particles.length === 0) fireworks.splice(i, 1);
+      });
+
       animationId = requestAnimationFrame(animate);
     };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Storyline from './components/Storyline';
 import DinoGame from './components/DinoGame';
 import Celebration from './components/Celebration';
+import BackgroundMusic from './components/BackgroundMusic';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <BackgroundMusic />
       {currentStage === 'storyline' && <Storyline onFinish={handleFinishStory} />}
       {currentStage === 'game' && <DinoGame onGameComplete={handleWinGame} />}
       {currentStage === 'celebration' && <Celebration onRestart={handleRestart} />}
