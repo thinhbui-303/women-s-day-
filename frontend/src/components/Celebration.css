@@ -1,0 +1,193 @@
+.celebration-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #2d0a2d 0%, #1a0a1a 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.main-card-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 77, 109, 0.3);
+  border-radius: 40px;
+  padding: 60px 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 77, 109, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 77, 109, 0.8);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.secondary-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ff8fa3;
+  margin-bottom: 10px;
+}
+
+.message-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  border-radius: 20px;
+  border-left: 4px solid #ff4d6d;
+}
+
+.message-box p {
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+.gift-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(to right, rgba(255, 77, 109, 0.2), transparent);
+  padding: 15px 25px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 77, 109, 0.4);
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.gift-card span {
+  font-weight: 600;
+  color: #fff;
+}
+
+.restart-btn {
+  background: transparent;
+  color: #ff8fa3;
+  border: 2px solid #ff8fa3;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+  background: #ff8fa3;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Floating Flowers */
+.floating-flowers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.flower {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.6;
+  animation: floatFlower 10s linear infinite;
+}
+
+.flower:nth-child(1) { left: 10%; animation-duration: 12s; }
+.flower:nth-child(2) { left: 30%; animation-duration: 15s; animation-delay: 2s; }
+.flower:nth-child(3) { left: 50%; animation-duration: 10s; animation-delay: 5s; }
+.flower:nth-child(4) { left: 70%; animation-duration: 18s; animation-delay: 1s; }
+.flower:nth-child(5) { left: 90%; animation-duration: 14s; animation-delay: 4s; }
+.flower:nth-child(6) { left: 20%; animation-duration: 16s; animation-delay: 7s; }
+
+@keyframes floatFlower {
+  0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+.message-form {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-label {
+  color: #ff8fa3;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.message-input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 77, 109, 0.3);
+  border-radius: 15px;
+  padding: 15px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: #ff4d6d;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.2);
+}
+
+.send-message-btn {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-message-btn:hover:not(:disabled) {
+  background: #ff758f;
+  transform: translateY(-2px);
+}
+
+.send-message-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .main-title { font-size: 2.2rem; }
+  .secondary-title { font-size: 1.2rem; }
+  .main-card-glass { padding: 40px 20px; border-radius: 30px; }
+}
