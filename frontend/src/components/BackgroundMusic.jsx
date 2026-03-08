@@ -7,7 +7,7 @@ const BackgroundMusic = () => {
   const audioRef = useRef(null);
 
   // Nhạc nền: As Long As You Love Me - Backstreet Boys
-  const audioUrl = 'https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Ketsa/Raising_Frequency/Ketsa_-_08_-_As_Long_As_You_Love_Me.mp3'; // Đây là một bản cover/phiên bản free, hoặc bạn có thể thay bằng link youtube/mp3 khác
+  const audioUrl = '/nhac.mp3'; // Trong Vite, file trong public được truy cập trực tiếp từ root /
 
   const togglePlay = () => {
     if (isPlaying) {
@@ -24,8 +24,8 @@ const BackgroundMusic = () => {
   return (
     <div className="music-container">
       <audio ref={audioRef} src={audioUrl} loop />
-      <button 
-        className={`music-toggle ${isPlaying ? 'playing' : ''}`} 
+      <button
+        className={`music-toggle ${isPlaying ? 'playing' : ''}`}
         onClick={togglePlay}
         title={isPlaying ? "Tắt nhạc" : "Bật nhạc"}
       >
